@@ -6,7 +6,7 @@
 Since OmniFaces 2.2, the below file servlet has been reworked, modernized and refactored into a highly reusable abstract org.omnifaces.servlet.FileServlet class in JSF utility library OmniFaces.
 
 
-##Introduction
+## Introduction
 In the almost 2 year old FileServlet and ImageServlet articles you can find basic examples of a download servlet and an image servlet. It does in fact nothing more than obtaining an InputStream of the desired resource/file and writing it to the OutputStream of the HTTP response along with a set of important response headers. It does not support resumes and effective caching of client side data.
 
 If one downloaded a big file and got network problems on 99% of the file, one wouldn't be happy to discover the need to download the complete file again after getting network back. If a browser decides to check the cached images for changes, it would send a HEAD request to determine under each the unique file identifier and its timestamp or it would send a conditional GET request to determine the response status. If the image isn't changed according to the server response, the client won't re-request the image again to save the network bandwidth and other efforts.
