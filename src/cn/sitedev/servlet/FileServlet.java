@@ -70,10 +70,10 @@ public class FileServlet extends HttpServlet {
 
 		// Get base path (path to get all resources from) as init parameter.
 		this.basePath = getInitParameter("basePath");
-		// start modify on 2018-9-21 by qchen  support relative path
-		// eg: new File(this.getClass().getClassLoader().getResource("/").getPath()).getParent()==>D:\Users\QChen\workspace-sts\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\file-servlet\WEB-INF
-		this.basePath = new File(this.getClass().getClassLoader().getResource("/").getPath()).getParent() + basePath;
-		// end modify on 2018-9-21 by qchen  support relative path
+		// start modify on 2018-9-21 by qchen  change getting method of the file path
+		// eg: this.getServletContext().getRealPath==>D:\Users\QChen\workspace-sts\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\file-servlet
+		this.basePath = this.getServletContext().getRealPath(getInitParameter("basePath"));
+		// end modify on 2018-9-21 by qchen  change getting method of the file path
 		// Validate base path.
 		if (this.basePath == null) {
 			throw new ServletException("FileServlet init param 'basePath' is required.");

@@ -10,7 +10,7 @@
     <init-param>
       <param-name>basePath</param-name>
       <!-- D:/Users/QChen/workspace-sts/file-download/path/to/files -->
-      <param-value>/path/to/files</param-value>
+      <param-value>/WEB-INF/path/to/files</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
